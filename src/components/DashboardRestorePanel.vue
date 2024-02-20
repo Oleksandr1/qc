@@ -1,25 +1,23 @@
 <template>
   <div class="dashboard-restore-panel">
-    <div v-for="element in elements" :key="element.id">
-      <button class="dashboard-restore-panel--btn" @click="restoreElement(element)">
+    <div v-for="element in elements" :key="element.id" class="dashboard-restore-panel__item">
+      <button class="dashboard-restore-panel__btn" @click="restoreElement(element)">
         <icon-restore />
-        <span style="margin-left:10px ">{{ element.name }}</span>
+        <span class="dashboard-restore-panel__btn-text">{{ element.name }}</span>
       </button>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import type {iDashboardItem} from "@/types";
-import IconRestore from "@/components/icons/IconRestore.vue";
+import type { iDashboardItem } from '@/types'
+import IconRestore from '@/components/icons/IconRestore.vue'
 
-const props = defineProps(
-        { elements: Array<iDashboardItem>}
-    )
+defineProps({ elements: Array<iDashboardItem> })
 
-const emits = defineEmits(['restore-element']);
+const emits = defineEmits(['restore-element'])
 
 const restoreElement = (element: iDashboardItem) => {
-  emits('restore-element', element);
+  emits('restore-element', element)
 }
 </script>
 <style scoped>
@@ -31,14 +29,19 @@ const restoreElement = (element: iDashboardItem) => {
   text-align: center;
   min-height: 60px;
 }
-.dashboard-restore-panel--btn {
-  background-color: #00CC99;
+.dashboard-restore-panel__item {
+  margin: 5px;
+}
+.dashboard-restore-panel__btn {
+  background-color: var(--vt-c-aqua);
   color: white;
   border: none;
   padding: 5px;
-  margin: 5px;
   border-radius: 5px;
   display: flex;
   align-items: center;
+}
+.dashboard-restore-panel__btn-text {
+  margin-left: 10px;
 }
 </style>
