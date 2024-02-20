@@ -39,9 +39,9 @@
 <script setup lang="ts">
 import { DraggableResizableVue, DraggableResizableContainer } from 'draggable-resizable-vue3'
 import { computed, ref } from 'vue'
-import DashboardItem from '@/components/DashboardItem.vue'
+import DashboardItem from '@/components/dashboard/DashboardItem.vue'
 import type { iDashboardItem } from '@/types'
-import DashboardRestorePanel from '@/components/DashboardRestorePanel.vue'
+import DashboardRestorePanel from '@/components/dashboard/DashboardRestorePanel.vue'
 import { useElementSize } from '@vueuse/core'
 import { useDashboards } from '@/composables/useDashboards'
 
