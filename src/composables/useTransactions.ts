@@ -2,9 +2,10 @@ import type { iTransaction, iIncomingData } from '@/types'
 import { useWebSocket, watchDeep } from '@vueuse/core'
 import { onBeforeUnmount, ref } from 'vue'
 import { trackerStatusEnum } from '@/types'
+import config from '@/config'
 
 export function useTransactions() {
-  const { status, data, send, open, close } = useWebSocket('wss://ws.blockchain.info/inv')
+  const { status, data, send, open, close } = useWebSocket(config.transactionSocket)
   const trackerStatus = ref(trackerStatusEnum.Stopped)
   send(JSON.stringify({ op: 'ping' }))
 
