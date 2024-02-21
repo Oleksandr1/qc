@@ -8,7 +8,7 @@
   </button>
 </template>
 <script setup lang="ts">
-import { defineProps } from 'vue'
+
 withDefaults(
   defineProps<{
     text: string
